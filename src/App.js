@@ -114,23 +114,30 @@ class App extends Component{
     const{shuffledlist,newlist,count,topscore,playagain}=this.state
     const shufflelength=shuffledlist.length
     const newlistlength=newlist.length
+    this.setState(prevState=>({
+      newlist:[...prevState.newlist,id]
+     }))
     const isPresent=newlist.includes(id)
+
     if(!isPresent){
       this.setState(prevState=>({
         score:prevState.score+1,
         //topscore:prevState.topscore+1 
         
       }))
-      if(newlistlength===shufflelength){
+      
+     // console.log(newlist.length)
+      if(newlist.length>=11){
+        console.log(newlist.length)
          this.setState({
-          card:true,
+          card:false,
           text:'You Win',
           //playagain:true
          })
       }
      } else{
       this.setState({
-        card:false,
+        card:true,
         text:'You Lose',
         //playagain:false
       })
@@ -138,9 +145,7 @@ class App extends Component{
     this.setState({
    shuffledlist:shuffledlist.sort(()=>Math.random()-0.5)
    })
-   this.setState(prevState=>({
-    newlist:[...prevState.newlist,id]
-   }))
+   
   
      return shuffledlist
    }
