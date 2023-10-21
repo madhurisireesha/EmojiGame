@@ -3,7 +3,28 @@
     flex-direction: column;
 }
 .winorlosecontainer{
-    background-color:#fbc7d4;
+    /* background-color:#fbc7d4; */
     display:flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+}
+h1,h3{
+    color: white;
+}
+p{
+    color:#6a59ff;
+}
+.clicki{
+    background-color: #ffce27;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    height: 30px;
+    
+}
+.mid{
+    background-color: #9796f0;
 }
