@@ -78,7 +78,7 @@ class App extends Component{
   state={
     score:0,
     topscore:0,
-    
+    mode:true,
     shuffledlist:emojisList,
     newlist:[],
     card:true,
@@ -89,19 +89,26 @@ class App extends Component{
     const shuffledlist=emojisList.sort(()=>Math.random()-0.5)
       return shuffledlist
     }
-    onPlayAgain=()=>{
-      const{score,topscore}=this.state
-      this.setState({
-        playagain:true
-      })
-      if(score>topscore)
-      {
+    
+      playOne=()=>{
+        const{score,topscore}=this.state
+        
         this.setState({
-          topscore:score
-        })
+          score:0,
+          shuffledlist:emojisList,
+          newlist:[],
+          card:true,
+          text:'',
+          
+              })
+        if(score>topscore)
+        {
+          this.setState({
+            topscore:score
+          })
+        }
       }
 
-    }
    
   clickOnEmoji=(id)=>{
     const{shuffledlist,newlist,count,topscore,playagain}=this.state
@@ -111,20 +118,20 @@ class App extends Component{
     if(!isPresent){
       this.setState(prevState=>({
         score:prevState.score+1,
-        topscore:prevState.topscore+1 
+        //topscore:prevState.topscore+1 
         
       }))
       if(newlistlength===shufflelength){
          this.setState({
           card:true,
-          text:'you win',
+          text:'You Win',
           //playagain:true
          })
       }
      } else{
       this.setState({
         card:false,
-        text:'you lose',
+        text:'You Lose',
         //playagain:false
       })
     }
@@ -144,19 +151,19 @@ class App extends Component{
      
     const{score,topscore,card,text,playagain}=this.state
     return(
-      <div className='mainContainer'>
-       
-        <Nav score={score} topscore={topscore}/>
+      <div className='entirecontainer'>
+      
+        <Nav score={score} topscore={topscore} card={card}/>
       <div className='container'>
-        
-     
-        {card===true&& <div className='container1'>{shuffledlist.map((details)=>(
+         {card===true&& <div className='container1'>{shuffledlist.map((details)=>(
           <Emojigame details={details} clickOnEmoji={this.clickOnEmoji} />
         ) )}</div>}
-        {card===false&&<div>{<WinOrLoseCard card={card} text={text} score={score} onPlayAgain={this.onPlayAgain} />}</div>}
-      </div>
+        {card===false&&<div>{<WinOrLoseCard card={card} text={text} score={score} playOne={this.playOne} topscore={topscore}  />}</div>}
+      
       
       </div>
+      </div>
+     
     )
   }
 }
