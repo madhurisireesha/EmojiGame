@@ -1,0 +1,9 @@
+.firstwon{
+    display:flex;
+    flex-direction: column;
+}
+.winorlosecontainer{
+    background-color:#fbc7d4;
+    display:flex;
+    flex-direction: row;
+}
