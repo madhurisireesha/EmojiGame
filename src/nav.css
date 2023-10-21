@@ -1,7 +1,10 @@
 .navcontainer{
-    background-image:linear-gradient(#9796f0,#fbc7d4) !important
+   /* background-image:linear-gradient(#9796f0,#fbc7d4) !important; */
+   background-color:rgb(227, 205, 205);
+    background-image: transparent;
+    opacity: 10px;
 }
-.scoreco{
+.scorecard{
     display: flex;
     flex-direction: row;
    justify-content: flex-end;
@@ -11,5 +14,15 @@ p{
     margin-right:10px;
     color:white;
     font-style: roboto;
+    font-weight:bold ;
+    font-size: 18px;
+}
+.one{
+    display: flex;
+    flex-direction: row;
+    padding-left: 60px;
+}
+h3{
+    color:white;
 }
 
