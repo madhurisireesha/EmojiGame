@@ -1,0 +1,10 @@
+
+.emoji{
+    width:150px;
+    cursor:pointer;
+    }
+.emojibtn{
+    border:none;
+    margin:10px;
+    border-radius: 30px;
+}
