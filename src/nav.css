@@ -1,0 +1,15 @@
+.navcontainer{
+    background-image:linear-gradient(#9796f0,#fbc7d4) !important
+}
+.scoreco{
+    display: flex;
+    flex-direction: row;
+   justify-content: flex-end;
+}
+p{
+    margin-left:10px;
+    margin-right:10px;
+    color:white;
+    font-style: roboto;
+}
+
